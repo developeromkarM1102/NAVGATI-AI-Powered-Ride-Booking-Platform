@@ -1,0 +1,25 @@
+{
+  "name": "NavGati Backend",
+  "version": "1.0.0",
+  "description": "Backend For an NavGati an Ai powered Ride booking platform",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Omkar Mutal",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^2.21.0",
+    "axios": "^1.20.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.5",
+    "nodemon": "^3.1.14",
+    "socket.io": "^4.8.3"
+  }
+}
