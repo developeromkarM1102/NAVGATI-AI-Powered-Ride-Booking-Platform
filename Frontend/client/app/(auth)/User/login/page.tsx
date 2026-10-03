@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Eye, EyeOff, LockKeyhole, Mail, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { UserLogin, UserGoogleLogin } from "../../Services/userAuth.api";
 import { useRouter } from 'next/navigation'
 import UserAuthRedirect from "../../hooks/UserAuthRedirect";
@@ -32,7 +32,7 @@ export default function LoginPage() {
         }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 

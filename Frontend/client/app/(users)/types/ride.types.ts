@@ -1,3 +1,5 @@
+import type { ActiveRideBooking } from "./ride-options.types";
+
 export interface Requirements {
   pickup: string;
   destination: string;
@@ -95,7 +97,7 @@ export interface RideOptionsProps {
     longitude: number;
   };
 
-  onBookingAccepted?: (booking: Booking) => void;
+  onBookingAccepted?: (booking: ActiveRideBooking) => void;
 }
 
 export interface LocationData {

@@ -69,8 +69,9 @@ export interface Passenger {
 
 export interface Booking {
   _id: string;
-  driver: string;
+  driver: string | { _id: string };
   passenger?: Passenger;
+  user?: Passenger;
   pickup: Location;
   destination: Location;
   rideType: string;
@@ -89,6 +90,7 @@ export interface Booking {
 export type RideStatus =
   | "pending"
   | "accepted"
+  | "ongoing"
   | "started"
   | "cancelled"
   | "declined";

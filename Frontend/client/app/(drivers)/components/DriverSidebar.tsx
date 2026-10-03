@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { LayoutDashboard, Navigation, Wallet, History, Star, ShieldCheck, Settings, User, LogOut, X, Car } from "lucide-react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import { DriverGetMe, DriverLogout } from "../../(auth)/Services/driverAuth.api";
 
 export type DriverSection =
@@ -85,11 +86,11 @@ export default function DriverSidebar({
 
         // Store driver data
         setDriver(response.driver || response);
-      } catch (error: any) {
+      } catch (error: unknown) {
         // console.error("Failed to get current driver:", error);
 
         // Unauthorized
-        if (error?.response?.status === 401) {
+        if (axios.isAxiosError(error) && error.response?.status === 401) {
           router.push("/Driver/login");
           return;
         }

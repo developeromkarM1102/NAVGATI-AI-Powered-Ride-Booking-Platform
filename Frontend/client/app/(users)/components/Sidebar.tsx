@@ -32,12 +32,12 @@ interface UserData {
     role?: string;
 }
 
-export default function Sidebar({ isOpen, onClose }) {
+export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
 
     const router = useRouter();
 
     const [activeItem, setActiveItem] = useState("Dashboard");
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<UserData | null>(null);
     const [loadingUser, setLoadingUser] = useState(true);
     const [loggingOut, setLoggingOut] = useState(false);
 
@@ -78,7 +78,7 @@ export default function Sidebar({ isOpen, onClose }) {
         };
     }, [isOpen]);
 
-    const handleNavigation = (label) => {
+    const handleNavigation = (label: string) => {
         setActiveItem(label);
         onClose?.();
 

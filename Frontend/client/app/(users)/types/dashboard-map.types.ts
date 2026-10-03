@@ -1,4 +1,4 @@
-import type { Icon } from "leaflet";
+import type { DivIcon, Icon } from "leaflet";
 
 export interface Location {
   address: string;
@@ -57,8 +57,8 @@ export interface BookingStatusResponse {
 }
 
 export interface LeafletIcons {
-  pickupIcon: Icon;
-  destinationIcon: Icon;
-  userLocationIcon: Icon;
-  driverLocationIcon: Icon;
+  pickupIcon: Icon | DivIcon;
+  destinationIcon: Icon | DivIcon;
+  userLocationIcon: Icon | DivIcon;
+  driverLocationIcon: Icon | DivIcon;
 }

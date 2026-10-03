@@ -57,11 +57,11 @@ export function useDriverOverview() {
                 }
 
                 // console.log("Mapped overview data:", mappedData);
-            } catch (error: any) {
+            } catch (error: unknown) {
                 // console.error("Driver overview error:", error);
 
                 if (!cancelled) {
-                    setError(error?.message || "Failed to load driver overview");
+                    setError(error instanceof Error ? error.message : "Failed to load driver overview");
                 }
             } finally {
                 if (!cancelled) {
@@ -107,10 +107,10 @@ export function useDriverOverview() {
                     isAvailable: Boolean(response?.data?.isAvailable ?? newStatus),
                 };
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
             // console.error("Availability update error:", error);
 
-            setError(error?.message || "Failed to update availability");
+            setError(error instanceof Error ? error.message : "Failed to update availability");
         } finally {
             setUpdatingStatus(false);
         }

@@ -41,7 +41,7 @@ export interface ActiveRideBooking {
   distance?: number;
   estimatedDuration?: number;
   fare?: number;
-  status: BookingStatus;
+  status: Exclude<BookingStatus, null>;
   createdAt?: string;
   updatedAt?: string;
 }

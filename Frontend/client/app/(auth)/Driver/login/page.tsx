@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Eye, EyeOff, LockKeyhole, Mail, CarFront } from "lucide-react";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { DriverLogin } from "../../Services/driverAuth.api";
 import { useRouter } from "next/navigation";
 import DriverAuthRedirect from "../../hooks/DriverAuthRedirect";
@@ -32,7 +32,7 @@ export default function DriverLoginPage() {
         return response;
     };
 
-    const handleSubmit = async (e : any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, CarFront, IdCard, LockKeyhole, Mail, Palette, Phone, Sparkles, User, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { DriverRegister } from "../../Services/driverAuth.api";
 import DriverAuthRedirect from "../../hooks/DriverAuthRedirect";
 
@@ -55,7 +55,7 @@ export default function DriverRegisterPage() {
         return response;
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 

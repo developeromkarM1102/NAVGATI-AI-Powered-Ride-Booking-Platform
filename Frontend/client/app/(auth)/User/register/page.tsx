@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, LockKeyhole, Mail, Phone, Sparkles, User } from "lucide-react";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { UserRegister } from "../../Services/userAuth.api";
 import { useRouter } from 'next/navigation'
 import UserAuthRedirect from "../../hooks/UserAuthRedirect";
@@ -39,7 +39,7 @@ export default function RegisterPage() {
         }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 

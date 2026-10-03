@@ -110,12 +110,12 @@ export function useDriverRide() {
 
         const responseData = data?.data;
 
-        const bookingData =
+        const bookingData: Booking | null =
             data?.booking ||
-            (responseData && !Array.isArray(responseData) && "booking" in responseData ? responseData.booking : null) ||
-            (Array.isArray(data?.bookings) ? data.bookings[0] : null) ||
+            (responseData && !Array.isArray(responseData) && "booking" in responseData ? responseData.booking || null : null) ||
+            data?.bookings?.[0] ||
             (Array.isArray(responseData) ? responseData[0] : null) ||
-            (responseData && !Array.isArray(responseData) ? responseData : null);
+            (responseData && !Array.isArray(responseData) && "_id" in responseData ? responseData : null);
 
         if (!bookingData) {
             return null;

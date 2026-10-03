@@ -874,22 +874,18 @@ export function useRideBooking({
           driver,
 
         pickup:
-          response.booking?.pickup || {
+          response.booking?.pickup || (pickupCoordinates && {
             address: pickup,
-            latitude:
-              pickupCoordinates.latitude,
-            longitude:
-              pickupCoordinates.longitude,
-          },
+            latitude: pickupCoordinates.latitude,
+            longitude: pickupCoordinates.longitude,
+          }),
 
         destination:
-          response.booking?.destination || {
+          response.booking?.destination || (destinationCoordinates && {
             address: destination,
-            latitude:
-              destinationCoordinates.latitude,
-            longitude:
-              destinationCoordinates.longitude,
-          },
+            latitude: destinationCoordinates.latitude,
+            longitude: destinationCoordinates.longitude,
+          }),
 
         rideType: selectedRideType,
         passengers,

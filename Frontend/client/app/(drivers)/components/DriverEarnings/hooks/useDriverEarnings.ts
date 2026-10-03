@@ -58,11 +58,11 @@ export function useDriverEarnings() {
                 }
 
                 // console.log("Mapped earnings data:", mappedData);
-            } catch (error: any) {
+            } catch (error: unknown) {
                 // console.error("Fetch earnings error:", error);
 
                 if (!cancelled) {
-                    setError(error?.message || "Unable to load earnings");
+                    setError(error instanceof Error ? error.message : "Unable to load earnings");
                 }
             } finally {
                 if (!cancelled) {
